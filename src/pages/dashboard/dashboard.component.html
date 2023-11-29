@@ -1,0 +1,15 @@
+<div class="dashboard">
+  <h1>Dashboard</h1>
+  <div class="client-list">
+    <div *ngFor="let client of clients" class="client-item">
+      <span class="client-name">{{ client.name }}</span>
+      <button (click)="editClient(client)" class="edit-button">Editar</button>
+      <button (click)="deleteClient(client)" class="delete-button">
+        Excluir
+      </button>
+    </div>
+  </div>
+  <button (click)="addClient()" class="add-client-button">
+    Adicionar Cliente
+  </button>
+</div>

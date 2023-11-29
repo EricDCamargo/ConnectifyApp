@@ -1,0 +1,37 @@
+<div class="conteinerCenter">
+  <div class="login">
+    <h1 style="color: wheat">Criando sua conta</h1>
+    <form (ngSubmit)="handleSignUp()">
+      <div>
+        <input
+          placeholder="Digite seu nome"
+          type="text"
+          name="name"
+          class="input"
+          [(ngModel)]="userData.name"
+        />
+        <input
+          placeholder="Digite seu email"
+          type="text"
+          name="email"
+          class="input"
+          [(ngModel)]="userData.email"
+        />
+        <input
+          placeholder="Sua Senha"
+          type="password"
+          name="password"
+          class="input"
+          [(ngModel)]="userData.password"
+        />
+      </div>
+
+      <button type="submit" class="button" [disabled]="loading">
+        Cadastrar
+      </button>
+    </form>
+    <a routerLink="/">
+      <p class="text">Já possui uma conta? Faça login!</p>
+    </a>
+  </div>
+</div>
