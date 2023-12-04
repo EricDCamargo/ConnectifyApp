@@ -1,0 +1,76 @@
+<!-- create-client-modal.component.html -->
+
+<div class="container">
+  <div class="modal-header">
+    <h1>Cadastro de Cliente</h1>
+    <span class="close-ico" (click)="close()">X</span>
+  </div>
+  <form class="client-form" (ngSubmit)="requestSubmit()" #clientForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="newClientData.name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="newClientData.email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="newClientData.password"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Telefone:</label>
+      <input
+        type="text"
+        id="phone"
+        name="phone"
+        [(ngModel)]="newClientData.phone"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="city">Cidade:</label>
+      <input
+        type="text"
+        id="city"
+        name="city"
+        [(ngModel)]="newClientData.city"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cep">CEP:</label>
+      <input type="text" id="cep" name="cep" [(ngModel)]="newClientData.cep" />
+    </div>
+
+    <div class="form-group">
+      <label for="province">Província:</label>
+      <input
+        type="text"
+        id="province"
+        name="province"
+        [(ngModel)]="newClientData.province"
+      />
+    </div>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</div>

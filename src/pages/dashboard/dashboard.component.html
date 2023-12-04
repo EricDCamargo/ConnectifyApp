@@ -1,15 +1,63 @@
-<div class="dashboard">
-  <h1>Dashboard</h1>
-  <div class="client-list">
-    <div *ngFor="let client of clients" class="client-item">
-      <span class="client-name">{{ client.name }}</span>
-      <button (click)="editClient(client)" class="edit-button">Editar</button>
-      <button (click)="deleteClient(client)" class="delete-button">
-        Excluir
-      </button>
-    </div>
-  </div>
-  <button (click)="addClient()" class="add-client-button">
+<div class="jumbotron text-center bg-secondary text-light">
+  <h1 class="display-4">Cadastro de Clientes</h1>
+</div>
+
+<div class="modal-container" *ngIf="showCreateModal">
+  <app-create-client-modal
+    (submitRequested)="createClient($event)"
+    (closed)="closeCreateModal()"
+  ></app-create-client-modal>
+</div>
+
+<div class="modal-container" *ngIf="showEditModal">
+  <app-edit-add-client-modal
+    (submitRequested)="editClient($event)"
+    (closed)="closeEditModal()"
+    [selectedClient]="editingClient"
+  ></app-edit-add-client-modal>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">CEP</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <th scope="row">{{ client.id }}</th>
+        <td>{{ client.name }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.phone }}</td>
+        <td>{{ client.city }}</td>
+        <td>{{ client.cep }}</td>
+        <td>{{ client.province }}</td>
+        <td>
+          <button
+            (click)="openEditModal(client)"
+            class="btn btn-primary btn-sm"
+          >
+            Editar
+          </button>
+          <button
+            (click)="deleteClient(client.id)"
+            class="btn btn-danger btn-sm"
+          >
+            Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success" (click)="openCreateModal()">
     Adicionar Cliente
   </button>
 </div>

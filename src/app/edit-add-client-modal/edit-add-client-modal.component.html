@@ -1,0 +1,76 @@
+<!-- edit-add-client-modal.component.html -->
+
+<div class="container">
+  <div class="modal-header">
+    <h1>Edição de Cliente</h1>
+    <span class="close-ico" (click)="close()">X</span>
+  </div>
+  <form class="client-form" (ngSubmit)="requestSubmit()" #clientForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="editedClient.name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="editedClient.email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="editedClient.password"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Telefone:</label>
+      <input
+        type="text"
+        id="phone"
+        name="phone"
+        [(ngModel)]="editedClient.phone"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="city">Cidade:</label>
+      <input
+        type="text"
+        id="city"
+        name="city"
+        [(ngModel)]="editedClient.city"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cep">CEP:</label>
+      <input type="text" id="cep" name="cep" [(ngModel)]="editedClient.cep" />
+    </div>
+
+    <div class="form-group">
+      <label for="province">Província:</label>
+      <input
+        type="text"
+        id="province"
+        name="province"
+        [(ngModel)]="editedClient.province"
+      />
+    </div>
+
+    <button type="submit">Salvar</button>
+  </form>
+</div>
