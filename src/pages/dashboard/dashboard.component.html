@@ -18,9 +18,10 @@
 </div>
 
 <div class="container">
-  <div class="form-group">
+  <div class="form-group search-container">
     <label for="search">Pesquisar:</label>
     <input
+      class="form-control search-input"
       type="text"
       id="search"
       name="search"
@@ -35,6 +36,7 @@
         <th scope="col">Nome</th>
         <th scope="col">E-mail</th>
         <th scope="col">Telefone</th>
+        <th scope="col">Endereço</th>
         <th scope="col">Cidade</th>
         <th scope="col">CEP</th>
         <th scope="col">Estado</th>
@@ -47,6 +49,7 @@
         <td>{{ client.name }}</td>
         <td>{{ client.email }}</td>
         <td>{{ client.phone }}</td>
+        <td>{{ client.addres }}</td>
         <td>{{ client.city }}</td>
         <td>{{ client.cep }}</td>
         <td>{{ client.province }}</td>

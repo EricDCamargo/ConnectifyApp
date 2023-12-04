@@ -14,8 +14,8 @@ export class CreateClientModalComponent {
   newClientData: NewClient = {
     name: '',
     email: '',
-    password: '',
     phone: '',
+    addres: '',
     city: '',
     cep: '',
     province: '',
@@ -32,8 +32,8 @@ export class CreateClientModalComponent {
     this.newClientData = {
       name: '',
       email: '',
-      password: '',
       phone: '',
+      addres: '',
       city: '',
       cep: '',
       province: '',
@@ -44,14 +44,16 @@ export class CreateClientModalComponent {
     const requiredFields = [
       'name',
       'email',
-      'password',
+      'addres',
       'phone',
       'city',
       'cep',
       'province',
     ];
 
-    return requiredFields.every((field) => this.newClientData[field].trim() !== '');
+    return requiredFields.every(
+      (field) => this.newClientData[field].trim() !== ''
+    );
   }
 
   close() {

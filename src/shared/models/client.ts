@@ -2,8 +2,8 @@ export interface Client {
   id: number;
   name: string;
   email: string;
-  password: string;
   phone: string;
+  addres: string;
   city: string;
   cep: string;
   province: string;
@@ -13,8 +13,8 @@ export interface Client {
 export interface NewClient {
   name: string;
   email: string;
-  password: string;
   phone: string;
+  addres: string;
   city: string;
   cep: string;
   province: string;

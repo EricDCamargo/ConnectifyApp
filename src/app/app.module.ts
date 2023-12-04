@@ -8,9 +8,9 @@ import { routes } from './app.routes';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateClientModalComponent } from './create-client-modal/create-client-modal.component';
+import { CreateClientModalComponent } from '../components/create-client-modal/create-client-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { EditAddClientModalComponent } from './edit-add-client-modal/edit-add-client-modal.component';
+import { EditAddClientModalComponent } from '../components/edit-add-client-modal/edit-add-client-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
