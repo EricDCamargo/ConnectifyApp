@@ -10,16 +10,18 @@ import { catchError, finalize, tap } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
   clients: Client[] = [];
+  filteredClients: Client[] = [];
   loading = true;
   showCreateModal = false;
   showEditModal = false;
   editingClient: Client | undefined = undefined;
 
+  searchTerm = '';
+
   constructor(private clientService: ClientService) {}
 
   ngOnInit(): void {
     this.getClients();
-    console.log(this.clients);
   }
 
   // MODAIS
@@ -46,7 +48,10 @@ export class DashboardComponent implements OnInit {
 
   getClients(): void {
     this.clientService.getClients().subscribe({
-      next: (clients) => (this.clients = clients),
+      next: (clients) => {
+        this.clients = clients;
+        this.filteredClients = this.clients;
+      },
       error: (error) => {
         throw error;
       },
@@ -90,6 +95,18 @@ export class DashboardComponent implements OnInit {
           throw error;
         },
       });
+    }
+  }
+
+  filterClients(): void {
+    if (this.searchTerm.trim() === '') {
+      this.filteredClients = this.clients;
+    } else {
+      this.filteredClients = this.clients.filter(
+        (client) =>
+          client.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          client.email.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
     }
   }
 }
